@@ -17,3 +17,10 @@ document.querySelector('.reset').addEventListener('click', function(){
     init();
     render();
 });
+
+/*----- functions -----*/
+function init() {
+    holes = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
+    currentPlayer = 'one';
+    gameWinner = null;
+};
