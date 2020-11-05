@@ -1,0 +1,16 @@
+body {
+    cursor: grab;
+    background-color: black;
+  }
+  
+h1, #player1, #player2 {
+    font-family: Helvetica;
+    color: white;
+}
+  
+h1 {
+    font-size: 50px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+} 
