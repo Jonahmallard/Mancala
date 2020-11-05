@@ -14,3 +14,38 @@ h1 {
     margin: 0 auto;
     text-align: center;
 } 
+
+#player1 {
+    font-size: 35px;
+    justify-content: center;
+    margin-top: 6px;
+    margin: 0 auto;
+    text-align: center;
+}
+  
+#player2 {
+    font-size: 35px;
+    text-align: center;
+    margin: 0 auto;
+    margin: 40px 0 6px 60px;
+}
+
+.reset {
+    font-family: Helvetica;
+    font-size: 22px;
+    background-color: black;
+    color: white;
+    margin-left: 800px;
+}
+
+.gameboard {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    border: 5px  white solid;
+    width: 1475px;
+    height: 465px;
+    border-radius: 88px;
+    text-align: center;
+    margin: 0 auto;
+}
