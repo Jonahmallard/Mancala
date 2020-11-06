@@ -31,7 +31,7 @@ function handleClick(e){
     if (currentPlayer === 'two' && (idx <= 6 || idx === 13)) return;
     let lastHole = distStones(idx);
     
-    snatchStones(lastHole);
+    takeOtherPlayersPieces(lastHole);
     switchTurns(lastHole);
     gameWinner = winner();
 
@@ -60,7 +60,7 @@ function onOwnSide(holeIdx){
     return false;
 }
 
-  function snatchStones(lastIdx){
+  function takeOtherPlayersPieces(lastIdx){
     if (
         lastIdx === 6 || lastIdx === 13 ||
         holes[lastIdx] > 1 || !onOwnSide(lastIdx) ||
