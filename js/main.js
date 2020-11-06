@@ -1,6 +1,6 @@
 /*----- constants -----*/
 /*----- app's state (variables) -----*/
-let holes, currentPlayer, winner;
+var holes, currentPlayer, winner;
 
 /*----- cached element references -----*/
 let player1 = document.getElementById('player1')
@@ -25,12 +25,58 @@ function init() {
     gameWinner = null;
 }
 
+function handleClick(e){
+    let idx = parseInt(e.target.id.replace('holes', ''));
+    if (currentPlayer === 'one' && idx > 5) return;
+    if (currentPlayer === 'two' && (idx <= 6 || idx === 13)) return;
+    let lastHole = distStones(idx);
+    
+    snatchStones(lastHole);
+    switchTurns(lastHole);
+    gameWinner = winner();
+
+    winner();
+    render();
+}
+
+function distStones(holeIdx) {
+    let numStones = holes[holeIdx];
+    holes[holeIdx] = 0;
+    holeIdx += 1;
+    while (numStones > 0) {
+        if (holeIdx > 13) holeIdx = 0;
+        if ((currentPlayer === 'one' && holeIdx !== 13) || (currentPlayer === 'two' && holeIdx !== 6))  {
+            holes[holeIdx]++;
+            numStones--;
+        }
+        holeIdx++;
+    }
+    return --holeIdx;
+}
+
+function onOwnSide(holeIdx){
+    if (currentPlayer === 'one' && holeIdx < 6) return true;
+    if (currentPlayer === 'two' && holeIdx > 6 && holeIdx < 13) return true;
+    return false;
+}
+
+  function snatchStones(lastIdx){
+    if (
+        lastIdx === 6 || lastIdx === 13 ||
+        holes[lastIdx] > 1 || !onOwnSide(lastIdx) ||
+        holes[12 - lastIdx] === 0
+    )
+    return;
+    let manIdx = currentPlayer === 'one' ? 6 : 13;
+    holes[manIdx] += (1 + holes[12 - lastIdx]);
+    holes[lastIdx] = holes[12 - lastIdx] = 0;
+}
+
 function switchTurns(lastIdx){
     if ((currentPlayer === 'one' && lastIdx !== 6) || (currentPlayer === 'two' && lastIdx !== 13)) {
         currentPlayer = currentPlayer === 'one' ? 'two' : 'one';
     }
 }
-
 
 function winner() {
     if (holes[0] === 0 && holes[1] === 0 && holes[2] === 0 && holes[3] === 0 && holes[4] === 0 && holes[5] === 0) {
@@ -69,7 +115,7 @@ function render() {
         oneEl.style.border = currentPlayer === 'one' ? '2px solid white' : '';
         twoEl.style.border = currentPlayer === 'two' ? '2px solid white' : '';
     }
-};
+}
 
 init();
 render();
