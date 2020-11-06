@@ -7,8 +7,6 @@ let player1 = document.getElementById('player1')
 let player2 = document.getElementById('player2')
 let oneEl = document.getElementById('one');
 let twoEl = document.getElementById('two');
-let p1ScoreEl = document.querySelector('#p1score');
-let p2ScoreEl = document.querySelector('#p2score');
 
 /*----- event listeners -----*/
 document.querySelector('.gameboard').addEventListener('click', handleClick);
@@ -100,9 +98,6 @@ function render() {
         let holeEl = document.getElementById('holes' + idx);
         holeEl.innerHTML = numStones;
     });
-
-    p1ScoreEl.innerText = holes[6]; 
-    p2ScoreEl.innerText = holes[13]; 
 
     if (gameWinner) {
         document.querySelectorAll('h3').forEach(function(winner){
