@@ -25,6 +25,13 @@ function init() {
     gameWinner = null;
 }
 
+function switchTurns(lastIdx){
+    if ((currentPlayer === 'one' && lastIdx !== 6) || (currentPlayer === 'two' && lastIdx !== 13)) {
+        currentPlayer = currentPlayer === 'one' ? 'two' : 'one';
+    }
+}
+
+
 function winner() {
     if (holes[0] === 0 && holes[1] === 0 && holes[2] === 0 && holes[3] === 0 && holes[4] === 0 && holes[5] === 0) {
         getWinner();
