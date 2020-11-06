@@ -59,12 +59,12 @@ h1 {
 
 #one {
     justify-content: space-between;
-    margin: 290px 0 0 204px;
+    margin: 290px 0 0 240px;
 }
 
 #two {
     justify-content: space-around;
-    margin: 20px 0 0 200px;  
+    margin: 20px 0 0 240px; 
 }
 
 .hole {
@@ -93,8 +93,10 @@ h1 {
 
 .mancala1 {
     margin: 75px 10px 0 75px;
+    font-size: 50px;
 }
 
 .mancala2 {
     margin: 75px 10px 0 1075px;
+    font-size: 50px;
 }
