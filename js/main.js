@@ -27,7 +27,7 @@ function handleClick(e){
     let idx = parseInt(e.target.id.replace('holes', ''));
     if (currentPlayer === 'one' && idx > 5) return;
     if (currentPlayer === 'two' && (idx <= 6 || idx === 13)) return;
-    let lastHole = distStones(idx);
+    let lastHole = distributeStones(idx);
     
     takeOtherPlayersPieces(lastHole);
     switchTurns(lastHole);
@@ -37,7 +37,7 @@ function handleClick(e){
     render();
 }
 
-function distStones(holeIdx) {
+function distributeStones(holeIdx) {
     let numStones = holes[holeIdx];
     holes[holeIdx] = 0;
     holeIdx += 1;
@@ -52,7 +52,7 @@ function distStones(holeIdx) {
     return --holeIdx;
 }
 
-function onOwnSide(holeIdx){
+function onYourOwnSide(holeIdx){
     if (currentPlayer === 'one' && holeIdx < 6) return true;
     if (currentPlayer === 'two' && holeIdx > 6 && holeIdx < 13) return true;
     return false;
@@ -61,7 +61,7 @@ function onOwnSide(holeIdx){
   function takeOtherPlayersPieces(lastIdx){
     if (
         lastIdx === 6 || lastIdx === 13 ||
-        holes[lastIdx] > 1 || !onOwnSide(lastIdx) ||
+        holes[lastIdx] > 1 || !onYourOwnSide(lastIdx) ||
         holes[12 - lastIdx] === 0
     )
     return;
