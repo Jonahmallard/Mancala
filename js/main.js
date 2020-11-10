@@ -31,7 +31,7 @@ function handleClick(e){
     let lastHole = distributeStones(idx);
     
     takeOtherPlayersPieces(lastHole);
-    switchTurns(lastHole);
+    changeTurn(lastHole);
     gameWinner = winner();
 
     winner();
@@ -39,14 +39,14 @@ function handleClick(e){
 }
 
 function distributeStones(holeIdx) {
-    let numStones = holes[holeIdx];
+    let numPieces = holes[holeIdx];
     holes[holeIdx] = 0;
     holeIdx += 1;
-    while (numStones > 0) {
+    while (numPieces > 0) {
         if (holeIdx > 13) holeIdx = 0;
         if ((currentPlayer === 'one' && holeIdx !== 13) || (currentPlayer === 'two' && holeIdx !== 6))  {
             holes[holeIdx]++;
-            numStones--;
+            numPieces--;
         }
         holeIdx++;
     }
@@ -71,7 +71,7 @@ function onYourOwnSide(holeIdx){
     holes[lastIdx] = holes[12 - lastIdx] = 0;
 }
 
-function switchTurns(lastIdx){
+function changeTurn(lastIdx){
     if ((currentPlayer === 'one' && lastIdx !== 6) || (currentPlayer === 'two' && lastIdx !== 13)) {
         currentPlayer = currentPlayer === 'one' ? 'two' : 'one';
     }
@@ -95,9 +95,9 @@ function getWinner(){
 }
 
 function render() {
-    holes.forEach(function(numStones, idx){
+    holes.forEach(function(numPieces, idx){
         let holeEl = document.getElementById('holes' + idx);
-        holeEl.innerHTML = numStones;
+        holeEl.innerHTML = numPieces;
     });
 
     if (gameWinner) {
