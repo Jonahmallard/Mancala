@@ -25,6 +25,7 @@ function init() {
 
 function handleClick(e){
     let idx = parseInt(e.target.id.replace('holes', ''));
+    if (holes[idx] === 0) return;
     if (currentPlayer === 'one' && idx > 5) return;
     if (currentPlayer === 'two' && (idx <= 6 || idx === 13)) return;
     let lastHole = distributeStones(idx);
