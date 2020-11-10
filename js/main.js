@@ -28,7 +28,7 @@ function handleClick(e){
     if (holes[idx] === 0) return;
     if (currentPlayer === 'one' && idx > 5) return;
     if (currentPlayer === 'two' && (idx <= 6 || idx === 13)) return;
-    let lastHole = distributeStones(idx);
+    let lastHole = distributePieces(idx);
     
     takeOtherPlayersPieces(lastHole);
     changeTurn(lastHole);
@@ -38,7 +38,7 @@ function handleClick(e){
     render();
 }
 
-function distributeStones(holeIdx) {
+function distributePieces(holeIdx) {
     let numPieces = holes[holeIdx];
     holes[holeIdx] = 0;
     holeIdx += 1;
