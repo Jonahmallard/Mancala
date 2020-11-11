@@ -66,8 +66,8 @@ function onYourOwnSide(holeIdx){
         holes[12 - lastIdx] === 0
     )
     return;
-    let manIdx = currentPlayer === 'one' ? 6 : 13;
-    holes[manIdx] += (1 + holes[12 - lastIdx]);
+    let mainIdx = currentPlayer === 'one' ? 6 : 13;
+    holes[mainIdx] += (1 + holes[12 - lastIdx]);
     holes[lastIdx] = holes[12 - lastIdx] = 0;
 }
 
