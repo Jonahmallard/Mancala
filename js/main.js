@@ -60,11 +60,9 @@ function onYourOwnSide(holeIdx){
 }
 
   function takeOtherPlayersPieces(lastIdx){
-    if (
-        lastIdx === 6 || lastIdx === 13 ||
+    if (lastIdx === 6 || lastIdx === 13 ||
         holes[lastIdx] > 1 || !onYourOwnSide(lastIdx) ||
-        holes[12 - lastIdx] === 0
-    )
+        holes[12 - lastIdx] === 0)
     return;
     let mainIdx = currentPlayer === 'one' ? 6 : 13;
     holes[mainIdx] += (1 + holes[12 - lastIdx]);
@@ -80,8 +78,7 @@ function changeTurn(lastIdx){
 function winner() {
     if (holes[0] === 0 && holes[1] === 0 && holes[2] === 0 && holes[3] === 0 && holes[4] === 0 && holes[5] === 0) {
         getWinner();
-    } 
-    if (holes[7] === 0 && holes[8] === 0 && holes[9] === 0 && holes[10] === 0 && holes[11] === 0 && holes[12] === 0) {
+    } if (holes[7] === 0 && holes[8] === 0 && holes[9] === 0 && holes[10] === 0 && holes[11] === 0 && holes[12] === 0) {
         getWinner();
     }
 }
@@ -95,13 +92,13 @@ function getWinner(){
 }
 
 function render() {
-    holes.forEach(function(numPieces, idx){
+        holes.forEach(function(numPieces, idx){
         let holeEl = document.getElementById('holes' + idx);
         holeEl.innerHTML = numPieces;
     });
 
     if (gameWinner) {
-        document.querySelectorAll('h3').forEach(function(winner){
+            document.querySelectorAll('h3').forEach(function(winner){
             winner.innerHTML = ' Player ' + (gameWinner === 'one' ? 'One' : 'Two') + ' Won ! ';  
         });
         oneEl.style.border = twoEl.style.border = '';
