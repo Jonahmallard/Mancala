@@ -1,4 +1,4 @@
-<h2>Game Title: <h1>Mancala</h1><h2> 
+<h1>Mancala<h1> 
 
 <h2>Getting Started:</h2> Use this link to begin! https://jonahmallard.github.io/Mancala/
 
