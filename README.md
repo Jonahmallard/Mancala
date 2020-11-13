@@ -1,4 +1,4 @@
-<h2>Game Title:<h2> <h1 style="display:inline;text-align:center;">Mancala<h1>
+<h2>Game Title: Mancala<h2> 
 
 <h2>Getting Started:</h2> Use this link to begin! https://jonahmallard.github.io/Mancala/
 
@@ -8,4 +8,4 @@
 
 <h2>Technologies used: </h2> JavaScript, HTML, CSS
 
-<h3>Next Steps: </h3None, at this time.
+<h3>Next Steps: </h3>None, at this time.
