@@ -7,3 +7,5 @@ How to play: When it is your turn, click a pocket to "grab" each stone in that p
 ![alt text](https://imgur.com/7Lc1oZZ.png)
 
 Technologies used: JavaScript, HTML, CSS
+
+Next Steps: None, at this time.
